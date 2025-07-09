@@ -65,7 +65,7 @@ graph TD
     end
     
     IN_OR -- "SIG_IN_1" --> GT_IS_WARN
-    IN_AND -- "SIG_IN_2" --> GT_IS_WAR9
+    IN_AND -- "SIG_IN_2" --> GT_IS_WARN
 
     GT_IS_WARN -- "Is Warning? (SIG_IN_1)" --> OR_WARN_OR_CRIT
     IN_NOT -- "Is Critical? (SIG_IN_2)" --> OR_WARN_OR_CRIT
