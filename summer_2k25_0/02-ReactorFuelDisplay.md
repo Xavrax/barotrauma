@@ -70,8 +70,8 @@ graph TD
     GT_IS_WARN -- "Is Warning? (SIG_IN_1)" --> OR_WARN_OR_CRIT
     IN_NOT -- "Is Critical? (SIG_IN_2)" --> OR_WARN_OR_CRIT
     
-    OR_WARN_OR_CRIT -- "Red Channel" --> COLOR
-    IN_OR -- "Green Channel" --> COLOR
+    OR_WARN_OR_CRIT -- "SIG_IN_RED" --> COLOR
+    IN_OR -- "SIG_IN_GREEN" --> COLOR
 
     COLOR -- "SET_COLOR" --> TEXT_DISPLAY
     FUEL_PERCENT -- "SET_TEXT" --> TEXT_DISPLAY
