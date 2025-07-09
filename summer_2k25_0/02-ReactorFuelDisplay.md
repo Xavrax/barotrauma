@@ -45,31 +45,27 @@ The reactor's `FUEL_PERCENTAGE_OUT` is wired directly to the Text Display, ensur
 ```mermaid
 graph TD
     subgraph "Inputs from 01-ReactorFuelDetector"
-        style 01-ReactorFuelDetector fill:#eee,stroke:#333,stroke-width:2px
         IN_AND["AND Output (Fuel > Warn)"]
         IN_OR["OR Output (Fuel > Critical)"]
         IN_NOT["NOT Output (Fuel < Critical)"]
     end
 
     subgraph "Reactor"
-        style Reactor fill:#eee,stroke:#333,stroke-width:2px
         FUEL_PERCENT["FUEL_PERCENTAGE_OUT"]
     end
 
     subgraph "02-DisplayCircuit Components"
-        style 02-DisplayCircuit fill:#e6f3ff,stroke:#333,stroke-width:2px
         GT_IS_WARN["Greater Than"]
         OR_WARN_OR_CRIT["OR"]
         COLOR["Color Component"]
     end
 
     subgraph "Output Display"
-        style Output fill:#e2f0d9,stroke:#333,stroke-width:2px
         TEXT_DISPLAY["Text Display"]
     end
     
     IN_OR -- "SIG_IN_1" --> GT_IS_WARN
-    IN_AND -- "SIG_IN_2" --> GT_IS_WARN
+    IN_AND -- "SIG_IN_2" --> GT_IS_WAR9
 
     GT_IS_WARN -- "Is Warning? (SIG_IN_1)" --> OR_WARN_OR_CRIT
     IN_NOT -- "Is Critical? (SIG_IN_2)" --> OR_WARN_OR_CRIT
