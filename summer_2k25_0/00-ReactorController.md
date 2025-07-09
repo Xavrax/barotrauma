@@ -22,7 +22,7 @@ This document details the design and implementation of the Autonomous Reactor Co
 The circuit ensures a stable power supply by automatically adjusting turbine output and fission rate in response to the submarine's fluctuating power demands. In short, it's the only thing standing between us and a very sudden, very bright, and very final meltdown. It keeps the reactor powered as it should be, so you don't have to.
 
 ### 2. Functional Description
-t 
+
 The circuit operates on two core mathematical principles, ensuring the reactor's output dynamically matches the submarine's power requirements without the need for manual fiddling. This prevents both brownouts during high-demand situations (like engaging the main engines while the discharge coils are firing) and fuel wastage during quiet periods.
 
 1.  **Turbine Control:** The turbine output is determined by the equation:
@@ -62,16 +62,16 @@ graph TD
         DIV_FISSION["Divide"]
     end
 
-    LOAD_VALUE_OUT --> DIV_TURBINE
-    MEM_MAX_POWER --> DIV_TURBINE
+    LOAD_VALUE_OUT -- "SIG_1 (Dividend)" --> DIV_TURBINE
+    MEM_MAX_POWER -- "SIG_2 (Divisor)" --> DIV_TURBINE
     
     DIV_TURBINE -- "Turbine Output" --> SET_TURBINEOUTPUT
-    DIV_TURBINE -- "Turbine Output" --> DIV_FISSION
+    DIV_TURBINE -- "Turbine Output (SIG_1)" --> DIV_FISSION
 
-    FUEL_OUT --> DIV_FUEL
-    MEM_FUEL_CONST --> DIV_FUEL
+    FUEL_OUT -- "SIG_1 (Dividend)" --> DIV_FUEL
+    MEM_FUEL_CONST -- "SIG_2 (Divisor)" --> DIV_FUEL
 
-    DIV_FUEL -- "Fuel Ratio" --> DIV_FISSION
+    DIV_FUEL -- "Fuel Ratio (SIG_2)" --> DIV_FISSION
     DIV_FISSION -- "Fission Rate" --> SET_FISSIONRATE
 ```
 
