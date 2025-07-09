@@ -83,6 +83,6 @@ graph TD
 
 ### 6. OPERATIONAL NOTES & WARNINGS
 
--   **WARNING:** This is an *automated* system, not a magical one. It will not protect the reactor from direct weapons fire, sabotage by a traitorous crewmate, or the percussive maintenance techniques of an enraged security officer.
--   **NOTE:** If the lights are flickering and you hear a sound akin to a thousand angry hornets, the circuit is likely trying its best. It's not its fault someone decided to power on all the discharge coils at once.
--   **MEMO:** Any modifications to this circuit must be logged and approved. Unauthorized "improvements" will be tested by having the responsible party manually hug the reactor during a load spike.
+-   :warning: **WARNING:** This is an *automated* system, not a magical one. It will not protect the reactor from direct weapons fire, sabotage by a traitorous crewmate, or the percussive maintenance techniques of an enraged security officer.
+-   :information_source: **NOTE:** If the lights are flickering and you hear a sound akin to a thousand angry hornets, the circuit is likely trying its best. It's not its fault someone decided to power on all the discharge coils at once.
+-   :memo: **MEMO:** Any modifications to this circuit must be logged and approved. Unauthorized "improvements" will be tested by having the responsible party manually hug the reactor during a load spike.
