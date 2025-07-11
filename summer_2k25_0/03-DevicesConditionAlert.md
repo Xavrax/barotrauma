@@ -50,9 +50,9 @@ graph TD
     subgraph "Circuit Logic"
         MEM_THRESH["Memory <br> (Threshold)"]
         
-        GT1["> (Greater Than)"]
-        GT2["> (Greater Than)"]
-        GT3["> (Greater Than)"]
+        GT1["Greater Than"]
+        GT2["Greater Than"]
+        GT3["Greater Than"]
 
         OR1["OR"]
         OR_FINAL["OR (Final)"]
