@@ -37,13 +37,14 @@ The core of the circuit is a series of "Greater Than" components, one for each m
 -   1 Output Device (e.g., Siren, Flashing Lamp)
 -   The patience of a saint for the person who has to fix everything.
 
-### 4. Circuit Diagram (Example for 2 Devices)
+### 4. Circuit Diagram (Example for 3 Devices)
 
 ```mermaid
 graph TD
     subgraph "Monitored Devices"
         DEV1["Device 1 <br> (e.g., Pump)"]
         DEV2["Device 2 <br> (e.g., Junction Box)"]
+        DEV3["Device 3 <br> (e.g., Oxygen Generator)"]
     end
 
     subgraph "Circuit Logic"
@@ -51,8 +52,10 @@ graph TD
         
         GT1["> (Greater Than)"]
         GT2["> (Greater Than)"]
+        GT3["> (Greater Than)"]
 
-        OR_FINAL["OR"]
+        OR1["OR"]
+        OR_FINAL["OR (Final)"]
     end
 
     subgraph "Output"
@@ -65,8 +68,14 @@ graph TD
     DEV2 -- "COND_OUT (SIG_IN_2)" --> GT2
     MEM_THRESH -- "SIG_IN_1" --> GT2
 
-    GT1 -- "SIG_IN_1" --> OR_FINAL
-    GT2 -- "SIG_IN_2" --> OR_FINAL
+    DEV3 -- "COND_OUT (SIG_IN_2)" --> GT3
+    MEM_THRESH -- "SIG_IN_1" --> GT3
+
+    GT1 -- "SIG_IN_1" --> OR1
+    GT2 -- "SIG_IN_2" --> OR1
+
+    GT3 -- "SIG_IN_1" --> OR_FINAL
+    OR1 -- "SIG_IN_2" --> OR_FINAL
 
     OR_FINAL -- "Needs Repair" --> ALARM
 ```
