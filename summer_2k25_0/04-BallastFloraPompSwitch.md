@@ -73,7 +73,12 @@ graph TD
 
 ```
 
-### 6. OPERATIONAL NOTES & WARNINGS
+### 6. Installation & Wiring
+
+*To be detailed in a future revision. For now, find Xavrax and ask for the schematic. Bribe with ethanol if necessary.*
+
+
+### 7. OPERATIONAL NOTES & WARNINGS
 
 -   :warning: **WARNING:** This is a manual override. It will not activate on its own. If the Captain is dead, asleep, or busy wrestling a clown, the pumps will continue to run, happily spreading green death throughout the sub.
 -   :information_source: **NOTE:** This circuit only turns the pumps *off*. It does not turn them back on. The Captain must manually deactivate the switch once the... unpleasantness... has been dealt with.
