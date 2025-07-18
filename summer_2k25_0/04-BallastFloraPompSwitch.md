@@ -57,7 +57,7 @@ graph TD
     end
 
     subgraph "Ballast Section"
-        SGN_CHECK["Signal Check Component"]
+        SGN_CHECK["Signal Check Component\nSIG_OUT"]
         PUMP1["Ballast Pump 1"]
         PUMP2["Ballast Pump 2"]
         PUMP3["Ballast Pump 3"]
@@ -66,10 +66,10 @@ graph TD
 
     NAV_TERMINAL -- "SIG_OUT ('BallastKurwaAlert')" --> SGN_CHECK
 
-    SGN_CHECK -- "SET_STATE (0)" --> PUMP1
-    SGN_CHECK -- "SET_STATE (0)" --> PUMP2
-    SGN_CHECK -- "SET_STATE (0)" --> PUMP3
-    SGN_CHECK -- "SET_STATE (0)" --> PUMP_ETC
+    SGN_CHECK -- "SET_STATE" --> PUMP1
+    SGN_CHECK -- "SET_STATE" --> PUMP2
+    SGN_CHECK -- "SET_STATE" --> PUMP3
+    SGN_CHECK -- "SET_STATE" --> PUMP_ETC
 
 ```
 
