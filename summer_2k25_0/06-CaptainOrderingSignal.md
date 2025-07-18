@@ -26,7 +26,7 @@ This circuit exists because verbal commands are often lost in the glorious symph
 The system is a master-slave wireless network controlled by a single lever on the bridge.
 
 1.  **Activation:** The Captain, presumably with a stern look on their face, flips the dedicated "Order" lever.
-2.  **Broadcast:** The lever's `SIGNAL_OUT` is wired to a master WiFi Component. Upon activation, the lever sends the signal `captain_shut_the_fuck_up_alert`. This signal is then broadcast ship-wide on the command channel `1337`, as outlined in the [05-ChannelDistribution.md](05-ChannelDistribution.md) doctrine.
+2.  **Broadcast:** The lever's `SIGNAL_OUT` is wired to a master WiFi Component. Upon activation, the lever sends the signal `captain_shut_the_fuck_up_alert`. This signal is then broadcast ship-wide on the command channel `1337`, as outlined in the [05-ChannelDistribution](05-ChannelDistribution.md) doctrine.
 3.  **Reception & Alarm:** Slave WiFi components, strategically placed throughout the sub, are tuned to the same channel. When they receive the `captain_shut_the_fuck_up_alert` signal, their `SIGNAL_OUT` changes to `1`. This signal is wired to the `SET_STATE` of every connected alarm, siren, and buzzer, unleashing a deafening, unified cacophony that cannot be ignored.
 
 When the lever is deactivated, it sends a `0`, which the receiving components ignore, silencing the alarms.
