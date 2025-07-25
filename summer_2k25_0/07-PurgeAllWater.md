@@ -63,24 +63,24 @@ graph TD;
         PUMP["Ballast Pump"];
     end
 
-    WIFI_1330 -- "y_velocity" --> MUX1(SIG_IN_0);
-    MEM -- "-100" --> MUX1(SIG_IN_1);
+    WIFI_1330 -- "y_velocity to SIG_IN_0" --> MUX1;
+    MEM -- "-100 to SIG_IN_1" --> MUX1;
 
-    WATER -- "SIGNAL_OUT" --> AND1(SIG_IN_2);
+    WATER -- "SIGNAL_OUT to SIG_IN_2" --> AND1;
     WATER -- "SIGNAL_OUT" --> NOT1;
     
-    WIFI_100X -- "SIGNAL_OUT" --> AND1(SIG_IN_1);
-    WIFI_100X -- "SIGNAL_OUT" --> AND2(SIG_IN_1);
+    WIFI_100X -- "SIGNAL_OUT to SIG_IN_1" --> AND1;
+    WIFI_100X -- "SIGNAL_OUT to SIG_IN_1" --> AND2;
     
-    AND1 -- "Output: 1" --> MUX1(SET_SELECTION);
+    AND1 -- "Output: 1 to SET_SELECTION" --> MUX1;
     
-    NOT1 -- "SIGNAL_OUT" --> AND2(SIG_IN_2);
+    NOT1 -- "SIGNAL_OUT to SIG_IN_2" --> AND2;
     
-    AND2 -- "Output: 1" --> OR1(SIG_IN_1);
-    SYS04 -- "SIGNAL_OUT" --> OR1(SIG_IN_2);
+    AND2 -- "Output: 1 to SIG_IN_1" --> OR1;
+    SYS04 -- "SIGNAL_OUT to SIG_IN_2" --> OR1;
     
-    MUX1 -- "SIGNAL_OUT" --> PUMP(SET_TARGETLEVEL);
-    OR1 -- "SIGNAL_OUT" --> PUMP(SET_STATE);
+    MUX1 -- "SIGNAL_OUT to SET_TARGETLEVEL" --> PUMP;
+    OR1 -- "SIGNAL_OUT to SET_STATE" --> PUMP;
 
 ```
 
