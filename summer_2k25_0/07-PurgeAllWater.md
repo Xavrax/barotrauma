@@ -12,7 +12,7 @@
 | **Author** | Xavrax |
 | **Version** | 1.0 (Handle with care, may drain ocean) |
 | **Classification**| Standard Operating Procedure |
-| **Date**| 26.07.2k25 |
+| **Date**| 26t stat.07.2k25 |
 
 ---
 
@@ -63,8 +63,8 @@ graph TD;
         PUMP["Ballast Pump"];
     end
 
-    WIFI_1330 -- "y_velocity to SIG_IN_0" --> MUX1;
-    MEM -- "-100 to SIG_IN_1" --> MUX1;
+    WIFI_1330 -- "SIG_OUT to SIG_IN_0" --> MUX1;
+    MEM -- "SIG_OUT to SIG_IN_1" --> MUX1;
 
     WATER -- "SIGNAL_OUT to SIG_IN_2" --> AND1;
     WATER -- "SIGNAL_OUT" --> NOT1;
@@ -72,11 +72,11 @@ graph TD;
     WIFI_100X -- "SIGNAL_OUT to SIG_IN_1" --> AND1;
     WIFI_100X -- "SIGNAL_OUT to SIG_IN_1" --> AND2;
     
-    AND1 -- "Output: 1 to SET_SELECTION" --> MUX1;
+    AND1 -- "SIG_OUT to SET_SELECTION" --> MUX1;
     
     NOT1 -- "SIGNAL_OUT to SIG_IN_2" --> AND2;
     
-    AND2 -- "Output: 1 to SIG_IN_1" --> OR1;
+    AND2 -- "SIG_OUT to SIG_IN_1" --> OR1;
     SYS04 -- "SIGNAL_OUT to SIG_IN_2" --> OR1;
     
     MUX1 -- "SIGNAL_OUT to SET_TARGETLEVEL" --> PUMP;
