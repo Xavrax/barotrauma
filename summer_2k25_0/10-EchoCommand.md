@@ -60,13 +60,13 @@ graph TD;
         WIFI["WIFI<br/>Channel: 0000"];
     end
 
-    DEDUPLICATOR -- "SIGNAL_OUT" --> REGEX1(SIGNAL_IN);
-    DEDUPLICATOR -- "SIGNAL_OUT" --> REGEX2(SIGNAL_IN);
+    DEDUPLICATOR -- "SIGNAL_OUT to SIGNAL_IN" --> REGEX1;
+    DEDUPLICATOR -- "SIGNAL_OUT to SIGNAL_IN" --> REGEX2;
 
-    REGEX1 -- "SIGNAL_OUT (Match)" --> RELAY(SET_STATE);
-    REGEX2 -- "GROUP_1 (Message)" --> RELAY(SIGNAL_IN);
+    REGEX1 -- "SIGNAL_OUT (Match) to SET_STATE" --> RELAY;
+    REGEX2 -- "GROUP_1 (Message) to SIGNAL_IN" --> RELAY;
     
-    RELAY -- "SIGNAL_OUT" --> WIFI(SIGNAL_IN);
+    RELAY -- "SIGNAL_OUT to SIGNAL_IN" --> WIFI;
 
 ```
 
