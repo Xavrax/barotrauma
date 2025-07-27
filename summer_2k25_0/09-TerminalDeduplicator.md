@@ -28,7 +28,7 @@ This circuit attempts to solve this by comparing the last received signal with t
 | Component | Quantity | Notes |
 | :--- | :--- | :--- |
 | Memory Component| 2 | For storing previous signals. |
-| EQUALS Component| 1 | For comparing signals. |
+| EQUALS Component| 1 | For comparing signals. Set `output: 0`, `false_output: 1`. |
 | Relay Component | 1 | To act as a gate for the signal. |
 | Patience & Luck| A lot | This circuit can be finicky. |
 
@@ -45,7 +45,7 @@ graph TD;
     subgraph Logic
         MEM1["Memory 1"];
         MEM2["Memory 2"];
-        EQUALS["EQUALS"];
+        EQUALS["EQUALS<br/>Output: 0<br/>False: 1"];
         RELAY["Relay"];
     end
 
@@ -76,7 +76,10 @@ graph TD;
 5.  The `SIGNAL_OUT` from the **EQUALS Component** is connected to the `SET_STATE` of the **Relay**.
 6.  The final, deduplicated output of this circuit is the `SIGNAL_OUT` from the **Relay Component**.
 
-**Logic:** The circuit stores the current signal (`MEM1`) and the previously sent signal (`MEM2`). The **EQUALS** component checks if they are the same. If they are identical, it sends a `1` to the **Relay's** `SET_STATE`, turning the relay OFF and blocking the duplicate signal. If the signals are different, it sends a `0`, allowing the new signal to pass through the relay before it is stored in `MEM2` for the next cycle.
+**Logic:** The circuit stores the current signal (`MEM1`) and the previously sent signal (`MEM2`). The **EQUALS Component** (configured with `output: 0`, `false_output: 1`) compares them.
+*   If the signals are **different**, the EQUALS component outputs `1` (`false_output`), which turns the **Relay ON** and allows the new signal to pass through.
+*   If the signals are **identical**, the EQUALS component outputs `0` (`output`), which turns the **Relay OFF** and blocks the duplicate signal.
+The final, deduplicated output is taken from the Relay's `SIGNAL_OUT`.
 
 ---
 
