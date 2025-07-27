@@ -29,6 +29,7 @@ Failure to respect these channels will be considered an act of profound negligen
 | **100X** | `ballast_flora_purge_X` | **Ballast Flora Purge:** Triggers emergency ballast water removal in a specific ballast room infected with Ballast Flora. `X` denotes the ballast room ID (e.g., 1 for the leftmost, 2 for the next, and so on). This is a dedicated, single-purpose channel to avoid accidental activation or signal interference. |
 | **1330** | `y_velocity_out` | **Navigation Y-Velocity Telemetry:** Broadcasts the vessel's current vertical speed from the navigation terminal. Used for fine-tuned piloting and docking maneuvers. |
 | **1337** | `captain_shut_the_fuck_up_alert` | **The "Captain's Megaphone":** This is a priority override channel used exclusively by the Captain. When this signal is broadcast, all non-essential chatter on all channels is to cease immediately. It is the audio equivalent of the Captain staring directly at you with that "I am not amused" expression. Ignoring this signal is considered insubordination. |
+| **9999** | `terminal_sync` | **Terminal Sync Channel:** A dedicated channel for data synchronization between shipboard computer terminals. Manual use is prohibited to prevent data corruption. |
 
 ---
 
