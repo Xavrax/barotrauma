@@ -30,4 +30,14 @@ This section details the commands available for use in the ship's terminals.
 | Command | Arguments | Description & Usage |
 | :--- | :--- | :--- |
 | **`help`** | (none) | Displays a link to this document, providing a reference for all available commands. Use this if you are ever unsure about command syntax or function. |
-| **`echo`** | `<input>` | Broadcasts the specified `<input>` string as a text message. This is primarily used by automated systems to output data or alerts to the general chat channel (`0000`, as defined in `05-ChannelDistribution.md`) via a connected WIFI component. | 
+| **`echo`** | `<input>` | Broadcasts the specified `<input>` string as a text message. This is primarily used by automated systems to output data or alerts to the general chat channel (`0000`, as defined in `05-ChannelDistribution.md`) via a connected WIFI component. |
+| **`set <variable>`** | `<value>` | Sets a named variable to the provided value. See the Variables section below for supported names and allowed values. |
+
+---
+
+### 3. Variables
+
+- **`drop_ballast_X`**: Remotely starts the purge process described in `07-PurgeAllWater.md` for ballast room `X` (1 = leftmost).
+  - **Allowed values**: `0` (off), `1` (start purge)
+- **`close_canteen`**: Forces the canteen doors closed. Doors remain locked until this variable is set back to `0`.
+  - **Allowed values**: `0` (unlocked), `1` (locked) 
